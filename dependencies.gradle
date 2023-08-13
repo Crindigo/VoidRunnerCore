@@ -22,5 +22,21 @@
  * For more details, see https://docs.gradle.org/8.0.1/userguide/java_library_plugin.html#sec:java_library_configurations_graph
  */
 dependencies {
+    // CCL 3.2.3.358
+    implementation rfg.deobf('curse.maven:codechicken-lib-1-8-242818:2779848')
+    // GCYM 1.2.5
+    implementation rfg.deobf('curse.maven:gregicality-multiblocks-564858:4701685')
+    //GeckoLib
+    implementation rfg.deobf('curse.maven:geckolib-388172:4020277')
 
+    implementation rfg.deobf('curse.maven:endercore-231868:4671384')
+    implementation files('libs/EnderCore-1.12.2-0.5.78-core.jar') // extracted from above...
+
+    implementation rfg.deobf('curse.maven:applecore-224472:2969118')
+    implementation rfg.deobf("curse.maven:ctm-267602:2915363") // CTM 1.0.2.31
+
+    // change to cursemaven once curseforge stops being dumb
+    // fuck it, seems using libs we get thrown into dep hell
+    implementation files('libs/gregtech-1.12.2-2.7.3-beta-dev.jar')
+    //implementation rfg.deobf('curse.maven:gregtech-ce-unofficial-557242:4644635')
 }
