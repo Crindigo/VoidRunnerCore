@@ -3,6 +3,7 @@ package com.crindigo.voidrunnercore;
 import com.crindigo.voidrunnercore.common.CommonProxy;
 import com.crindigo.voidrunnercore.common.covers.VRCCoverBehaviors;
 import com.crindigo.voidrunnercore.common.item.VRCMetaItems;
+import com.crindigo.voidrunnercore.common.metatileentities.VRCMetaTileEntities;
 import gregtech.GTInternalTags;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -28,6 +29,8 @@ public class VoidRunnerMod
         proxy.preLoad();
 
         VRCMetaItems.initMetaItems();
+
+        VRCMetaTileEntities.init();
 
         VRCLog.log.info("I am " + Tags.MODNAME + " + at version " + Tags.VERSION);
     }

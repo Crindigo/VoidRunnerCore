@@ -1,2 +1,5 @@
 metaitem.cover.infinite_lava.name=Infinite Lava Cover
 metaitem.cover.infinite_lava.tooltip.1=Fills attached containers with §9Lava§7 as §fCover§7.
+voidrunnercore.machine.crude_mixer.bronze.name=Crude Mixer
+voidrunnercore.machine.crude_mixer.steel.name=High Pressure Crude Mixer
+recipemap.crude_mixer.name=Crude Mixer
