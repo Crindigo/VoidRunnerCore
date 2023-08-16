@@ -7,11 +7,16 @@ import com.crindigo.voidrunnercore.common.item.VRCMetaItems;
 import com.crindigo.voidrunnercore.common.metatileentities.VRCMetaTileEntities;
 import gregtech.api.items.OreDictNames;
 import gregtech.api.recipes.ModHandler;
+import gregtech.api.recipes.ingredients.GTRecipeItemInput;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.blocks.MetaBlocks;
+import gregtech.common.items.MetaItems;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -50,6 +55,52 @@ public class CommonProxy
                 .fluidInputs(Materials.Water.getFluid(1000))
                 .fluidOutputs(Materials.Acetone.getFluid(1000)) // testing
                 .duration(100)
+                .EUt(2)
+                .buildAndRegister();
+
+        for ( int i = 0; i < 4; i++ ) {
+            VRCRecipeMaps.BOTANY_GROWER_RECIPES.recipeBuilder()
+                    .input(GTRecipeItemInput.getOrCreate(new ItemStack(Blocks.SAPLING, 1, i))
+                            .setNonConsumable())
+                    .outputs(
+                            new ItemStack(Blocks.LOG, 1, i),
+                            new ItemStack(Items.STICK, 1),
+                            new ItemStack(Blocks.LEAVES, 2, i)
+                    )
+                    .duration(1200)
+                    .EUt(2)
+                    .buildAndRegister();
+
+            // costs 4800 steam/2400 eu
+            // multi greenhouse:
+            // 100 eu/t for 1200 ticks = 48 logs at 50x more power
+            // 100 for 800 ticks = 32 logs
+        }
+
+        for ( int i = 0; i < 2; i++ ) {
+            VRCRecipeMaps.BOTANY_GROWER_RECIPES.recipeBuilder()
+                    .input(GTRecipeItemInput.getOrCreate(new ItemStack(Blocks.SAPLING, 1, i + 4))
+                            .setNonConsumable())
+                    .outputs(
+                            new ItemStack(Blocks.LOG2, 1, i),
+                            new ItemStack(Items.STICK, 1),
+                            new ItemStack(Blocks.LEAVES2, 2, i)
+                    )
+                    .duration(1200)
+                    .EUt(2)
+                    .buildAndRegister();
+        }
+
+        VRCRecipeMaps.BOTANY_GROWER_RECIPES.recipeBuilder()
+                .input(GTRecipeItemInput.getOrCreate(new ItemStack(MetaBlocks.RUBBER_SAPLING, 1))
+                        .setNonConsumable())
+                .outputs(
+                        new ItemStack(MetaBlocks.RUBBER_LOG, 1),
+                        new ItemStack(Items.STICK, 1),
+                        new ItemStack(MetaBlocks.RUBBER_LEAVES, 2),
+                        MetaItems.STICKY_RESIN.getStackForm()
+                )
+                .duration(1200)
                 .EUt(2)
                 .buildAndRegister();
 
