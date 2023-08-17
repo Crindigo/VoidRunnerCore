@@ -1,8 +1,10 @@
 metaitem.cover.infinite_lava.name=Infinite Lava Cover
 metaitem.cover.infinite_lava.tooltip.1=Fills attached containers with §9Lava§7 as §fCover§7.
-voidrunnercore.machine.crude_mixer.bronze.name=Crude Mixer
-voidrunnercore.machine.crude_mixer.steel.name=High Pressure Crude Mixer
+voidrunnercore.machine.crude_mixer.bronze.name=Steam Crude Mixer
+voidrunnercore.machine.crude_mixer.steel.name=High Pressure Steam Crude Mixer
 recipemap.crude_mixer.name=Crude Mixer
-voidrunnercore.machine.botany_grower.bronze.name=Botany Grower
-voidrunnercore.machine.botany_grower.steel.name=High Pressure Botany Grower
+voidrunnercore.machine.botany_grower.bronze.name=Steam Botany Grower
+voidrunnercore.machine.botany_grower.steel.name=High Pressure Steam Botany Grower
 recipemap.botany_grower.name=Botany Grower
+voidrunnercore.machine.steam_sifter.bronze.name=Steam Sifter
+voidrunnercore.machine.steam_sifter.steel.name=High Pressure Steam Sifter

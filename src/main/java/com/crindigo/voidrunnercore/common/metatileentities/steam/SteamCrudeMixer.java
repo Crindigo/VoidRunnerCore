@@ -91,8 +91,8 @@ public class SteamCrudeMixer extends SteamMetaTileEntity
     @Override
     protected void randomDisplayTick(float x, float y, float z, EnumParticleTypes flame, EnumParticleTypes smoke) {
         super.randomDisplayTick(x, y, z, flame, smoke);
-        if (GTValues.RNG.nextBoolean()) {
-            getWorld().spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y + 0.5f, z, 0, 0, 0);
-        }
+        //if (GTValues.RNG.nextBoolean()) {
+        //    getWorld().spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y + 0.5f, z, 0, 0, 0);
+        //}
     }
 }
