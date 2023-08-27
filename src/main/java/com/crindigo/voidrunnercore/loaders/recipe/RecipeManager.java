@@ -8,5 +8,6 @@ public class RecipeManager
     {
         MachineRecipes.init();
         BotanyGrowerRecipes.init();
+        GreenhouseRecipes.init();
     }
 }

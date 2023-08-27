@@ -14,4 +14,8 @@ public class VRCRecipeMaps
     public static final RecipeMap<SimpleRecipeBuilder> BOTANY_GROWER_RECIPES = new RecipeMap<>(
             "botany_grower", 2, 4, 0, 0,
             new SimpleRecipeBuilder(), false);
+
+    public static final RecipeMap<SimpleRecipeBuilder> GREENHOUSE_RECIPES = new RecipeMap<>(
+            "greenhouse", 4, 6, 2, 0,
+            new SimpleRecipeBuilder(), false);
 }

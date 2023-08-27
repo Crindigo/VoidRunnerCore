@@ -1,6 +1,7 @@
 package com.crindigo.voidrunnercore.common.metatileentities;
 
 import com.crindigo.voidrunnercore.Tags;
+import com.crindigo.voidrunnercore.common.metatileentities.multi.MetaTileEntityGreenhouse;
 import com.crindigo.voidrunnercore.common.metatileentities.steam.SteamBotanyGrower;
 import com.crindigo.voidrunnercore.common.metatileentities.steam.SteamCrudeMixer;
 import com.crindigo.voidrunnercore.common.metatileentities.steam.SteamSifter;
@@ -17,6 +18,8 @@ public class VRCMetaTileEntities
     public static SteamSifter STEAM_SIFTER_BRONZE;
     public static SteamSifter STEAM_SIFTER_STEEL;
 
+    public static MetaTileEntityGreenhouse GREENHOUSE;
+
     public static void init() {
         STEAM_CRUDE_MIXER_BRONZE = MetaTileEntities.registerMetaTileEntity(31000,
                 new SteamCrudeMixer(vrcId("crude_mixer.bronze"), false));
@@ -32,6 +35,9 @@ public class VRCMetaTileEntities
                 new SteamSifter(vrcId("steam_sifter.bronze"), false));
         STEAM_SIFTER_STEEL = MetaTileEntities.registerMetaTileEntity(31005,
                 new SteamSifter(vrcId("steam_sifter.steel"), true));
+
+        GREENHOUSE = MetaTileEntities.registerMetaTileEntity(31006,
+                new MetaTileEntityGreenhouse(vrcId("greenhouse")));
     }
 
     private static @NotNull ResourceLocation vrcId(@NotNull String name) {
