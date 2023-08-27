@@ -1,6 +1,7 @@
 package com.crindigo.voidrunnercore.loaders.recipe;
 
 import com.crindigo.voidrunnercore.api.recipes.VRCRecipeMaps;
+import com.crindigo.voidrunnercore.common.ConfigHolder;
 import gregtech.api.recipes.ingredients.GTRecipeItemInput;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.items.MetaItems;
@@ -14,6 +15,9 @@ public class BotanyGrowerRecipes
 
     public static void init()
     {
+        final int duration = ConfigHolder.machine.baseBotanyGrowerDuration;
+        final int consumption = ConfigHolder.machine.botanyGrowerConsumption;
+
         for ( int i = 0; i < 4; i++ ) {
             VRCRecipeMaps.BOTANY_GROWER_RECIPES.recipeBuilder()
                     .input(GTRecipeItemInput.getOrCreate(new ItemStack(Blocks.SAPLING, 1, i))
@@ -23,8 +27,8 @@ public class BotanyGrowerRecipes
                             new ItemStack(Items.STICK, 1),
                             new ItemStack(Blocks.LEAVES, 2, i)
                     )
-                    .duration(1200)
-                    .EUt(2)
+                    .duration(duration)
+                    .EUt(consumption)
                     .buildAndRegister();
 
             // costs 4800 steam/2400 eu
@@ -42,8 +46,8 @@ public class BotanyGrowerRecipes
                             new ItemStack(Items.STICK, 1),
                             new ItemStack(Blocks.LEAVES2, 2, i)
                     )
-                    .duration(1200)
-                    .EUt(2)
+                    .duration(duration)
+                    .EUt(consumption)
                     .buildAndRegister();
         }
 
@@ -56,8 +60,8 @@ public class BotanyGrowerRecipes
                         new ItemStack(MetaBlocks.RUBBER_LEAVES, 2),
                         MetaItems.STICKY_RESIN.getStackForm()
                 )
-                .duration(1200)
-                .EUt(2)
+                .duration(duration)
+                .EUt(consumption)
                 .buildAndRegister();
     }
 }
