@@ -4,6 +4,8 @@ import com.crindigo.voidrunnercore.Tags;
 import com.crindigo.voidrunnercore.VRCLog;
 import com.crindigo.voidrunnercore.common.item.VRCMetaItems;
 import com.crindigo.voidrunnercore.loaders.recipe.RecipeManager;
+import gregtech.api.GregTechAPI;
+import gregtech.api.unification.material.event.MaterialRegistryEvent;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.event.RegistryEvent;
@@ -23,6 +25,12 @@ public class CommonProxy
     public void load()
     {
 
+    }
+
+    @SubscribeEvent
+    public static void registerMaterials(MaterialRegistryEvent event)
+    {
+        GregTechAPI.materialManager.createRegistry("voidrunner");
     }
 
     @SubscribeEvent

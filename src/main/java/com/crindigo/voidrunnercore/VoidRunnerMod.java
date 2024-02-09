@@ -29,8 +29,6 @@ public class VoidRunnerMod
     {
         proxy.preLoad();
 
-        GregTechAPI.materialManager.createRegistry("voidrunner");
-
         VRCMetaItems.initMetaItems();
 
         VRCMetaTileEntities.init();
