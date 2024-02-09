@@ -46,20 +46,24 @@ public class MetaTileEntityGreenhouse extends RecipeMapMultiblockController
         // each string inside of aisle() goes from bottom to top
         // each aisle call starts from back and goes to front??? so it's the opposite?
         return FactoryBlockPattern.start()
-                .aisle("FCCCF", "FCCCF", "FGGGF", "FGGGF", "FGGGF", "FFFFF")
-                .aisle("CCCCC", "CDDDC", "G###G", "G###G", "G###G", "FGGGF")
-                .aisle("CCCCC", "CDDDC", "G###G", "G###G", "G###G", "FGGGF")
-                .aisle("CCCCC", "CDDDC", "G###G", "G###G", "G###G", "FGGGF")
-                .aisle("FCCCF", "FCSCF", "FGGGF", "FGGGF", "FGGGF", "FFFFF")
+                // layer  0        1        2        3        4        5
+                .aisle("FCCCF", "FGGGF", "FGGGF", "FGGGF", "FGGGF", "FFFFF")
+                .aisle("CDDDC", "G###G", "G###G", "G###G", "G###G", "FGGGF")
+                .aisle("CDDDC", "G###G", "G###G", "G###G", "G###G", "FGGGF")
+                .aisle("CDDDC", "G###G", "G###G", "G###G", "G###G", "FGGGF")
+                .aisle("FCSCF", "FGGGF", "FGGGF", "FGGGF", "FGGGF", "FFFFF")
                 .where('F', frames(Materials.Steel))
                 .where('C', states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID))
-                        .setMinGlobalLimited(24)
+                        .setMinGlobalLimited(4)
                         .or(autoAbilities()))
                 .where('G', states(MetaBlocks.TRANSPARENT_CASING.getState(BlockGlassCasing.CasingType.TEMPERED_GLASS)))
-                .where('D', states(Blocks.DIRT.getDefaultState()))
+                .where('D', states(Blocks.DIRT.getDefaultState(), Blocks.GRASS.getDefaultState()))
                 .where('#', air())
                 .where('S', selfPredicate())
                 .build();
+
+        // want to remove bottom layer of casing, make it 4 tall inside
+        // also allow grass to be used instead of dirt in case it spreads.
     }
 
     @NotNull

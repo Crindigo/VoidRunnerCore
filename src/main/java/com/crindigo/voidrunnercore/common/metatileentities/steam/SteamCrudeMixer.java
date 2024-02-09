@@ -2,7 +2,6 @@ package com.crindigo.voidrunnercore.common.metatileentities.steam;
 
 import com.crindigo.voidrunnercore.api.capability.VRCFluidFilters;
 import com.crindigo.voidrunnercore.api.recipes.VRCRecipeMaps;
-import gregtech.api.GTValues;
 import gregtech.api.capability.impl.FilteredFluidHandler;
 import gregtech.api.capability.impl.FluidTankList;
 import gregtech.api.capability.impl.NotifiableItemStackHandler;
@@ -15,11 +14,8 @@ import gregtech.api.metatileentity.SteamMetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.client.renderer.texture.Textures;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidTank;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
 public class SteamCrudeMixer extends SteamMetaTileEntity
@@ -40,12 +36,12 @@ public class SteamCrudeMixer extends SteamMetaTileEntity
 
     @Override
     protected IItemHandlerModifiable createImportItemHandler() {
-        return new NotifiableItemStackHandler(2, this, false);
+        return new NotifiableItemStackHandler(this, 2, this, false);
     }
 
     @Override
     protected IItemHandlerModifiable createExportItemHandler() {
-        return new NotifiableItemStackHandler(1, this, true);
+        return new NotifiableItemStackHandler(this, 1, this, true);
     }
 
     @Override
@@ -85,14 +81,5 @@ public class SteamCrudeMixer extends SteamMetaTileEntity
                         .setBackgroundTexture(GuiTextures.SLOT_STEAM.get(isHighPressure))
                         .setContainerClicking(true, false))
                 .build(getHolder(), entityPlayer);
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    protected void randomDisplayTick(float x, float y, float z, EnumParticleTypes flame, EnumParticleTypes smoke) {
-        super.randomDisplayTick(x, y, z, flame, smoke);
-        //if (GTValues.RNG.nextBoolean()) {
-        //    getWorld().spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y + 0.5f, z, 0, 0, 0);
-        //}
     }
 }

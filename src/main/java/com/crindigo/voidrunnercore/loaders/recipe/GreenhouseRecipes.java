@@ -1,6 +1,7 @@
 package com.crindigo.voidrunnercore.loaders.recipe;
 
 import com.crindigo.voidrunnercore.api.recipes.VRCRecipeMaps;
+import gregtech.api.GTValues;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.api.recipes.ingredients.GTRecipeItemInput;
 import gregtech.common.blocks.MetaBlocks;
@@ -153,15 +154,15 @@ public class GreenhouseRecipes
     private static SimpleRecipeBuilder startRecipe(ItemStack sapling)
     {
         return VRCRecipeMaps.GREENHOUSE_RECIPES.recipeBuilder()
-                .input(GTRecipeItemInput.getOrCreate(sapling).setNonConsumable())
+                .input(new GTRecipeItemInput(sapling).setNonConsumable())
                 .input(MetaItems.FERTILIZER, 2)
                 .fluidInputs(new FluidStack(FluidRegistry.WATER, 1000))
                 .duration(1200)
-                .EUt(64);
+                .EUt(GTValues.VA[GTValues.MV]);
     }
 
     private static SimpleRecipeBuilder startRecipe(ItemStack sapling, Block dirt)
     {
-        return startRecipe(sapling).input(GTRecipeItemInput.getOrCreate(new ItemStack(dirt)).setNonConsumable());
+        return startRecipe(sapling).input(new GTRecipeItemInput(new ItemStack(dirt)).setNonConsumable());
     }
 }

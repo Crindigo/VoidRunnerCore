@@ -20,7 +20,7 @@ public class BotanyGrowerRecipes
 
         for ( int i = 0; i < 4; i++ ) {
             VRCRecipeMaps.BOTANY_GROWER_RECIPES.recipeBuilder()
-                    .input(GTRecipeItemInput.getOrCreate(new ItemStack(Blocks.SAPLING, 1, i))
+                    .input(new GTRecipeItemInput(new ItemStack(Blocks.SAPLING, 1, i))
                             .setNonConsumable())
                     .outputs(
                             new ItemStack(Blocks.LOG, 1, i),
@@ -39,7 +39,7 @@ public class BotanyGrowerRecipes
 
         for ( int i = 0; i < 2; i++ ) {
             VRCRecipeMaps.BOTANY_GROWER_RECIPES.recipeBuilder()
-                    .input(GTRecipeItemInput.getOrCreate(new ItemStack(Blocks.SAPLING, 1, i + 4))
+                    .input(new GTRecipeItemInput(new ItemStack(Blocks.SAPLING, 1, i + 4))
                             .setNonConsumable())
                     .outputs(
                             new ItemStack(Blocks.LOG2, 1, i),
@@ -52,7 +52,7 @@ public class BotanyGrowerRecipes
         }
 
         VRCRecipeMaps.BOTANY_GROWER_RECIPES.recipeBuilder()
-                .input(GTRecipeItemInput.getOrCreate(new ItemStack(MetaBlocks.RUBBER_SAPLING, 1))
+                .input(new GTRecipeItemInput(new ItemStack(MetaBlocks.RUBBER_SAPLING, 1))
                         .setNonConsumable())
                 .outputs(
                         new ItemStack(MetaBlocks.RUBBER_LOG, 1),

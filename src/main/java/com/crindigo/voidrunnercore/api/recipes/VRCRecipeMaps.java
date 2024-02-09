@@ -1,6 +1,7 @@
 package com.crindigo.voidrunnercore.api.recipes;
 
 import gregtech.api.recipes.RecipeMap;
+import gregtech.api.recipes.builders.PrimitiveRecipeBuilder;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.core.sound.GTSoundEvents;
 
@@ -16,6 +17,10 @@ public class VRCRecipeMaps
             new SimpleRecipeBuilder(), false);
 
     public static final RecipeMap<SimpleRecipeBuilder> GREENHOUSE_RECIPES = new RecipeMap<>(
-            "greenhouse", 4, 6, 2, 0,
+            "vrc_greenhouse", 4, 6, 2, 0,
             new SimpleRecipeBuilder(), false);
+
+    public static final RecipeMap<PrimitiveRecipeBuilder> EVAP_POOL_RECIPES = new RecipeMap<>(
+            "evap_pool", 1, 4, 1, 0,
+            new PrimitiveRecipeBuilder(), false);
 }

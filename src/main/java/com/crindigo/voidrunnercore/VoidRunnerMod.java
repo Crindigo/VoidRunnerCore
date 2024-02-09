@@ -5,6 +5,7 @@ import com.crindigo.voidrunnercore.common.covers.VRCCoverBehaviors;
 import com.crindigo.voidrunnercore.common.item.VRCMetaItems;
 import com.crindigo.voidrunnercore.common.metatileentities.VRCMetaTileEntities;
 import gregtech.GTInternalTags;
+import gregtech.api.GregTechAPI;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -27,6 +28,8 @@ public class VoidRunnerMod
     public void preInit(FMLPreInitializationEvent event)
     {
         proxy.preLoad();
+
+        GregTechAPI.materialManager.createRegistry("voidrunner");
 
         VRCMetaItems.initMetaItems();
 

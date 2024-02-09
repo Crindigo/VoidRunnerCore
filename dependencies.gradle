@@ -25,7 +25,7 @@ dependencies {
     // CCL 3.2.3.358
     implementation rfg.deobf('curse.maven:codechicken-lib-1-8-242818:2779848')
     // GCYM 1.2.5
-    implementation rfg.deobf('curse.maven:gregicality-multiblocks-564858:4701685')
+    implementation rfg.deobf('curse.maven:gregicality-multiblocks-564858:4910674')
     //GeckoLib
     implementation rfg.deobf('curse.maven:geckolib-388172:4020277')
 
@@ -37,6 +37,6 @@ dependencies {
 
     // change to cursemaven once curseforge stops being dumb
     // fuck it, seems using libs we get thrown into dep hell
-    implementation files('libs/gregtech-1.12.2-2.7.3-beta-dev.jar')
-    //implementation rfg.deobf('curse.maven:gregtech-ce-unofficial-557242:4644635')
+    //implementation files('libs/gregtech-1.12.2-2.7.3-beta-dev.jar')
+    implementation rfg.deobf('curse.maven:gregtech-ce-unofficial-557242:5050979')
 }

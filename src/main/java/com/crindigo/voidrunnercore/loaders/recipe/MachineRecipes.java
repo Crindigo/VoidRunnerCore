@@ -64,6 +64,17 @@ public class MachineRecipes
 
         makeSteelVariant("steam_sifter_steel",
                 VRCMetaTileEntities.STEAM_SIFTER_BRONZE, VRCMetaTileEntities.STEAM_SIFTER_STEEL);
+
+        // Primitive Evap Pool
+
+        ModHandler.addShapedRecipe(true, "primitive_evap_pool",
+                VRCMetaTileEntities.PRIMITIVE_EVAP_POOL.getStackForm(),
+                "WPW",
+                "R R",
+                "WPW",
+                'W', new UnificationEntry(OrePrefix.block, Materials.TreatedWood),
+                'P', new UnificationEntry(OrePrefix.plate, Materials.Lead),
+                'R',  new UnificationEntry(OrePrefix.rotor, Materials.Tin));
     }
 
     private static void makeSteelVariant(String name, SteamMetaTileEntity bronzeMachine, SteamMetaTileEntity steelMachine)

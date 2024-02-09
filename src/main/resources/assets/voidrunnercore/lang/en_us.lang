@@ -9,7 +9,10 @@ recipemap.botany_grower.name=Botany Grower
 voidrunnercore.machine.steam_sifter.bronze.name=Steam Sifter
 voidrunnercore.machine.steam_sifter.steel.name=High Pressure Steam Sifter
 voidrunnercore.machine.greenhouse.name=Greenhouse
-recipemap.greenhouse.name=Greenhouse
+recipemap.vrc_greenhouse.name=Greenhouse
 voidrunnercore.greenhouse.supply_co2_to_boost=Supply 100L/s CO2 to double growth rate.
 voidrunnercore.greenhouse.co2_amount=CO2 Amount: %sL
 voidrunnercore.greenhouse.co2_boosted=§bCO2 boosted.
+
+voidrunnercore.machine.primitive_evap_pool.name=Primitive Evaporation Pool
+recipemap.evap_pool.name=Evaporation Pool

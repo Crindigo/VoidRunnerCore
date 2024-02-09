@@ -1,5 +1,6 @@
 package com.crindigo.voidrunnercore.common.item;
 
+import gregtech.api.GregTechAPI;
 import gregtech.api.items.metaitem.MetaItem.MetaValueItem;
 import gregtech.api.items.metaitem.StandardMetaItem;
 import gregtech.common.items.behaviors.TooltipBehavior;

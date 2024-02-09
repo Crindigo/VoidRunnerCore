@@ -10,10 +10,7 @@ import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.client.renderer.texture.Textures;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
 public class SteamSifter extends SteamMetaTileEntity
@@ -29,12 +26,12 @@ public class SteamSifter extends SteamMetaTileEntity
 
     @Override
     protected IItemHandlerModifiable createImportItemHandler() {
-        return new NotifiableItemStackHandler(1, this, false);
+        return new NotifiableItemStackHandler(this, 1, this, false);
     }
 
     @Override
     protected IItemHandlerModifiable createExportItemHandler() {
-        return new NotifiableItemStackHandler(6, this, true);
+        return new NotifiableItemStackHandler(this, 6, this, true);
     }
 
     @Override
@@ -54,14 +51,5 @@ public class SteamSifter extends SteamMetaTileEntity
                 .slot(this.exportItems, 5, 142, 43, GuiTextures.SLOT_STEAM.get(isHighPressure))
 
                 .build(getHolder(), entityPlayer);
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    protected void randomDisplayTick(float x, float y, float z, EnumParticleTypes flame, EnumParticleTypes smoke) {
-        super.randomDisplayTick(x, y, z, flame, smoke);
-        //if (GTValues.RNG.nextBoolean()) {
-        //    getWorld().spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y + 0.5f, z, 0, 0, 0);
-        //}
     }
 }
