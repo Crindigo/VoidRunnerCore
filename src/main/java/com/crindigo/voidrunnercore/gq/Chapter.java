@@ -1,37 +1,36 @@
 package com.crindigo.voidrunnercore.gq;
 
+import com.crindigo.voidrunnercore.VRCLog;
+import com.google.common.collect.Lists;
 import com.google.gson.JsonObject;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
+import java.util.List;
 import java.util.Map;
-import java.util.function.BiFunction;
 
 public class Chapter
 {
+    public static final ItemStack DEFAULT_ICON = new ItemStack(Items.BOOK);
+
     public int id;
     public String name;
-    public ItemStack icon;
-    public String desc;
-    public Map<Quest, int[]> quests;
-    public Map<Integer, Quest> byId;
+    public ItemStack icon = DEFAULT_ICON;
+    public String desc = "(no description)";
+    public List<Quest> quests = Lists.newArrayList();
 
-    public int index; // stupid temp var for java
+    private int index; // stupid temp var for java
 
     public Chapter(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public void add(Quest quest, int[] pos) {
-        this.quests.put(quest, pos);
-        this.byId.put(quest.id, quest);
+    public void add(Quest quest) {
+        this.quests.add(quest);
     }
 
-    public void repos(int id, int[] pos) {
-        this.quests.put(this.byId.get(id), pos);
-    }
-
-    public JsonObject toJson(int chapterOrder) {
+    public JsonObject toJson(int chapterOrder, Map<Integer, int[]> positions) {
         JsonObject obj = new JsonObject();
 
         obj.addProperty("lineID:3", this.id);
@@ -55,13 +54,20 @@ public class Chapter
         // -240, -240 => -192, -240 => etc.
         final JsonObject questsObj = new JsonObject();
         this.index = 0;
-        quests.forEach((Quest q, int[] pos) -> {
+        quests.forEach((Quest q) -> {
+            int[] posn = positions == null ? null : positions.get(q.id);
+            if ( posn == null ) {
+                posn = makePosition(this.index);
+                VRCLog.log.info("assigning pos " + posn[0] + " " + posn[1] + " for quest " + q.id);
+            } else {
+                VRCLog.log.info("using pos " + posn[0] + " " + posn[1] + " for quest " + q.id);
+            }
             final JsonObject entry = new JsonObject();
             entry.addProperty("id:3", q.id);
-            entry.addProperty("sizeX:3", 24);
-            entry.addProperty("sizeY:3", 24);
-            entry.addProperty("x:3", pos[0]);
-            entry.addProperty("y:3", pos[1]);
+            entry.addProperty("sizeX:3", posn[2]);
+            entry.addProperty("sizeY:3", posn[3]);
+            entry.addProperty("x:3", posn[0]);
+            entry.addProperty("y:3", posn[1]);
             questsObj.add(this.index + ":10", entry);
             this.index++;
         });
@@ -69,5 +75,14 @@ public class Chapter
         obj.add("quests:9", questsObj);
 
         return obj;
+    }
+
+    private int[] makePosition(int ix) {
+        int[] posn = { 0, 0, 24, 24 };
+        // start at 480, -240. go 10 across before going down 1.
+        // so they all just get shoved on the right and can be moved into place.
+        posn[0] = (ix % 10) * 48 + 480;
+        posn[1] = (ix / 10) * 48 - 240;
+        return posn;
     }
 }
