@@ -4,14 +4,17 @@ import com.crindigo.voidrunnercore.common.CommonProxy;
 import com.crindigo.voidrunnercore.common.covers.VRCCoverBehaviors;
 import com.crindigo.voidrunnercore.common.item.VRCMetaItems;
 import com.crindigo.voidrunnercore.common.metatileentities.VRCMetaTileEntities;
+import com.crindigo.voidrunnercore.gq.ReloadQuestsCommand;
 import gregtech.GTInternalTags;
 import gregtech.api.GregTechAPI;
+import net.minecraft.command.ServerCommandManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
 @Mod(modid = Tags.MODID, version = Tags.VERSION, name = Tags.MODNAME,
         acceptedMinecraftVersions = "[1.12.2]",
@@ -48,5 +51,12 @@ public class VoidRunnerMod
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
     public void postInit(FMLPostInitializationEvent event)
     {
+    }
+
+    @EventHandler
+    public void serverStart(FMLServerStartingEvent event) {
+        ServerCommandManager manager = (ServerCommandManager) event.getServer().getCommandManager();
+
+        manager.registerCommand(new ReloadQuestsCommand());
     }
 }

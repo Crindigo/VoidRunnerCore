@@ -16,3 +16,5 @@ voidrunnercore.greenhouse.co2_boosted=§bCO2 boosted.
 
 voidrunnercore.machine.primitive_evap_pool.name=Primitive Evaporation Pool
 recipemap.evap_pool.name=Evaporation Pool
+
+voidrunnercore.command.reloading_quests=Reloading GroovyQuesting quests

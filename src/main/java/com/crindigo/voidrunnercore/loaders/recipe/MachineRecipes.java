@@ -1,13 +1,16 @@
 package com.crindigo.voidrunnercore.loaders.recipe;
 
 import com.crindigo.voidrunnercore.common.metatileentities.VRCMetaTileEntities;
+import gregtech.api.GTValues;
 import gregtech.api.metatileentity.SteamMetaTileEntity;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
+import gregtech.common.blocks.BlockMachineCasing;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.items.MetaItems;
+import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
@@ -70,11 +73,12 @@ public class MachineRecipes
         ModHandler.addShapedRecipe(true, "primitive_evap_pool",
                 VRCMetaTileEntities.PRIMITIVE_EVAP_POOL.getStackForm(),
                 "WPW",
-                "R R",
+                "RCR",
                 "WPW",
-                'W', new UnificationEntry(OrePrefix.block, Materials.TreatedWood),
+                'W', new UnificationEntry(OrePrefix.plank, Materials.TreatedWood),
                 'P', new UnificationEntry(OrePrefix.plate, Materials.Lead),
-                'R',  new UnificationEntry(OrePrefix.rotor, Materials.Tin));
+                'R', new UnificationEntry(OrePrefix.rotor, Materials.Tin),
+                'C', MetaBlocks.MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.ULV));
     }
 
     private static void makeSteelVariant(String name, SteamMetaTileEntity bronzeMachine, SteamMetaTileEntity steelMachine)
