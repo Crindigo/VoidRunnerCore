@@ -47,6 +47,7 @@ public class Quest
         int i = 0;
         for (ItemStack item : items) {
             map.add(i + ":10", getItem(item));
+            i++;
         }
 
         return map;
@@ -59,6 +60,7 @@ public class Quest
         int i = 0;
         for (FluidStack fluidStack : fluidStacks) {
             map.add(i + ":10", getFluid(fluidStack));
+            i++;
         }
 
         return map;

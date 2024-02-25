@@ -31,7 +31,7 @@ public class ReloadQuestsCommand extends CommandBase
         sender.sendMessage(VRC.tct("voidrunnercore.command.reloading_quests"));
         RequestReloadEvent.publish();
 
-        Quest q1 = new Quest(1, "Intro");
+        /*Quest q1 = new Quest(1, "Intro");
         q1.desc = "This is the description for the intro quest.";
         q1.icon = new ItemStack(Items.NETHER_STAR);
 
@@ -51,7 +51,7 @@ public class ReloadQuestsCommand extends CommandBase
         Book book = new Book();
         book.add(chapter);
 
-        book.save();
+        book.save();*/
     }
 
     @Override

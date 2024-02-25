@@ -3,6 +3,7 @@ package com.crindigo.voidrunnercore.gq;
 import com.crindigo.voidrunnercore.VRCLog;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.google.common.io.Files;
 import com.google.gson.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -28,7 +29,12 @@ public class Book
     public void save()
     {
         final Map<Integer, Map<Integer, int[]>> positions = readPositions();
-        final File bqFile = new File("config/betterquesting/",  "DefaultQuests.json");
+        final File bqFile = new File("config/betterquesting/saved_quests/",  "GroovyQuesting.json");
+        try {
+            Files.createParentDirs(bqFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         try ( FileWriter writer = new FileWriter(bqFile, false) ) {
             gson.toJson(toJson(positions), writer);
         } catch (IOException e) {
@@ -84,7 +90,7 @@ public class Book
     }
 
     private Map<Integer, Map<Integer, int[]>> readPositions() {
-        final File bqFile = new File("config/betterquesting/",  "DefaultQuests.json");
+        final File bqFile = new File("config/betterquesting/saved_quests/",  "GroovyQuesting.json");
         try ( FileReader reader = new FileReader(bqFile) ) {
             Map<Integer, Map<Integer, int[]>> outputMap = new HashMap<>();
             final JsonObject data = (JsonObject) new JsonParser().parse(reader);
