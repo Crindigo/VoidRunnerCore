@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
@@ -100,7 +101,7 @@ public class Quest
         final JsonObject properties = new JsonObject();
         final JsonObject betterquesting = new JsonObject();
         betterquesting.addProperty("autoclaim:1", 0);
-        betterquesting.addProperty("desc:8", desc);
+        betterquesting.addProperty("desc:8", format(desc));
         betterquesting.addProperty("globalshare:1", 0);
         betterquesting.add("icon:10", getItem(icon));
         betterquesting.addProperty("ignoresview:1", 0);
@@ -148,6 +149,22 @@ public class Quest
         result.add("tasks:9", tasksObj);
 
         return result;
+    }
+
+    public static String format(String text) {
+        text = text.replace("<b>", "<bold>");
+        text = text.replace("<s>", "<strikethrough>");
+        text = text.replace("<u>", "<underline>");
+        text = text.replace("<i>", "<italic>");
+        text = text.replace("<o>", "<obfuscated>");
+        text = text.replace("</>", "<reset>");
+
+        for ( String fmt : TextFormatting.getValidValues(true, true) ) {
+            if ( text.contains("<" + fmt + ">") ) {
+                text = text.replace("<" + fmt + ">", TextFormatting.getValueByName(fmt).toString());
+            }
+        }
+        return text;
     }
 
     private JsonObject checkboxTask(int index) {

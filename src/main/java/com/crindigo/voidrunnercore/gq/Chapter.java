@@ -41,7 +41,7 @@ public class Chapter
 
         bq.addProperty("bg_image:8", "");
         bq.addProperty("bg_size:3", 256);
-        bq.addProperty("desc:8", desc);
+        bq.addProperty("desc:8", Quest.format(desc));
         bq.add("icon:10", Quest.getItem(icon));
         bq.addProperty("name:8", name);
         bq.addProperty("visibility:8", "NORMAL");
