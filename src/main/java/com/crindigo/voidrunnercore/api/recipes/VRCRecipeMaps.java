@@ -23,4 +23,8 @@ public class VRCRecipeMaps
     public static final RecipeMap<PrimitiveRecipeBuilder> EVAP_POOL_RECIPES = new RecipeMap<>(
             "evap_pool", 1, 4, 1, 0,
             new PrimitiveRecipeBuilder(), false);
+
+    public static final RecipeMap<SimpleRecipeBuilder> TRASH_COLLECTOR_RECIPES = new RecipeMap<>(
+            "trash_collector", 1, 8, 1, 1,
+            new SimpleRecipeBuilder(), false);
 }

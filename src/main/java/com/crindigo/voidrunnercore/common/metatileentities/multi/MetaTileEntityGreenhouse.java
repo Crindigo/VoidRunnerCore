@@ -47,11 +47,11 @@ public class MetaTileEntityGreenhouse extends RecipeMapMultiblockController
         // each aisle call starts from back and goes to front??? so it's the opposite?
         return FactoryBlockPattern.start()
                 // layer  0        1        2        3        4        5
-                .aisle("FCCCF", "FGGGF", "FGGGF", "FGGGF", "FGGGF", "FFFFF")
+                .aisle("FCCCF", "FGGGF", "FGGGF", "FGGGF", "FGGGF", "FFFFF") // back
                 .aisle("CDDDC", "G###G", "G###G", "G###G", "G###G", "FGGGF")
                 .aisle("CDDDC", "G###G", "G###G", "G###G", "G###G", "FGGGF")
                 .aisle("CDDDC", "G###G", "G###G", "G###G", "G###G", "FGGGF")
-                .aisle("FCSCF", "FGGGF", "FGGGF", "FGGGF", "FGGGF", "FFFFF")
+                .aisle("FCSCF", "FGGGF", "FGGGF", "FGGGF", "FGGGF", "FFFFF") // front
                 .where('F', frames(Materials.Steel))
                 .where('C', states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID))
                         .setMinGlobalLimited(4)

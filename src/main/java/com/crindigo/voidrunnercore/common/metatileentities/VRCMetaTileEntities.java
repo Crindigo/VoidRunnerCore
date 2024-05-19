@@ -3,6 +3,7 @@ package com.crindigo.voidrunnercore.common.metatileentities;
 import com.crindigo.voidrunnercore.Tags;
 import com.crindigo.voidrunnercore.common.metatileentities.multi.MetaTileEntityGreenhouse;
 import com.crindigo.voidrunnercore.common.metatileentities.multi.MetaTileEntityPrimitiveEvapPool;
+import com.crindigo.voidrunnercore.common.metatileentities.multi.MetaTileEntityTrashCollector;
 import com.crindigo.voidrunnercore.common.metatileentities.steam.SteamBotanyGrower;
 import com.crindigo.voidrunnercore.common.metatileentities.steam.SteamCrudeMixer;
 import com.crindigo.voidrunnercore.common.metatileentities.steam.SteamSifter;
@@ -20,6 +21,7 @@ public class VRCMetaTileEntities
     public static SteamSifter STEAM_SIFTER_STEEL;
     //public static MetaTileEntityGreenhouse GREENHOUSE;
     public static MetaTileEntityPrimitiveEvapPool PRIMITIVE_EVAP_POOL;
+    public static MetaTileEntityTrashCollector TRASH_COLLECTOR;
 
 
     public static void init() {
@@ -43,6 +45,9 @@ public class VRCMetaTileEntities
 
         PRIMITIVE_EVAP_POOL = MetaTileEntities.registerMetaTileEntity(31007,
                 new MetaTileEntityPrimitiveEvapPool(vrcId("primitive_evap_pool")));
+
+        TRASH_COLLECTOR = MetaTileEntities.registerMetaTileEntity(31008,
+                new MetaTileEntityTrashCollector(vrcId("trash_collector")));
     }
 
     private static @NotNull ResourceLocation vrcId(@NotNull String name) {

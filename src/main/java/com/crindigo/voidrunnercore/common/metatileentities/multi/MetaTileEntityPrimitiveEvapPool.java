@@ -38,6 +38,7 @@ public class MetaTileEntityPrimitiveEvapPool extends RecipeMapMultiblockControll
         // look at cleanroom code, maybe we can detect a wood wall X blocks behind the controller,
         // then build the structure to be X dimensions
         final int innerDim = 3;
+        final int minWalls = (innerDim + 1) * 4 - 5;
 
         final StringBuilder anyBuilder = new StringBuilder("  ");
         final StringBuilder backWallBuilder = new StringBuilder("WW");
@@ -68,7 +69,7 @@ public class MetaTileEntityPrimitiveEvapPool extends RecipeMapMultiblockControll
                 .where('B', states(
                         Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT)))
                 .where('W', states(MetaBlocks.STEAM_CASING.getState(BlockSteamCasing.SteamCasingType.WOOD_WALL))
-                        .setMinGlobalLimited(19)
+                        .setMinGlobalLimited(minWalls)
                         .or(autoAbilities(false, false, true, true, true, true, false)))
                 .where('.', air())
                 .where('S', selfPredicate())
@@ -99,6 +100,11 @@ public class MetaTileEntityPrimitiveEvapPool extends RecipeMapMultiblockControll
     @Override
     public boolean getIsWeatherOrTerrainResistant() {
         return true;
+    }
+
+    @Override
+    public boolean allowsExtendedFacing() {
+        return false;
     }
 
     private static class EvapPoolWorkableHandler extends NoEnergyMultiblockRecipeLogic {
