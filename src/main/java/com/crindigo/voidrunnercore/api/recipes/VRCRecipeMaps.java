@@ -27,4 +27,8 @@ public class VRCRecipeMaps
     public static final RecipeMap<SimpleRecipeBuilder> TRASH_COLLECTOR_RECIPES = new RecipeMap<>(
             "trash_collector", 1, 8, 1, 1,
             new SimpleRecipeBuilder(), false);
+
+    public static final RecipeMap<SimpleRecipeBuilder> DIGESTER_RECIPES = new RecipeMap<>(
+            "digester", 4, 4, 1, 1,
+            new SimpleRecipeBuilder(), false);
 }

@@ -20,4 +20,7 @@ recipemap.evap_pool.name=Evaporation Pool
 voidrunnercore.machine.trash_collector.name=Trash Collector
 recipemap.trash_collector.name=Trash Collector
 
+voidrunnercore.machine.digester.name=Digester
+recipemap.digester.name=Digester
+
 voidrunnercore.command.reloading_quests=Reloading GroovyQuesting quests

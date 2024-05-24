@@ -1,6 +1,7 @@
 package com.crindigo.voidrunnercore.common.metatileentities;
 
 import com.crindigo.voidrunnercore.Tags;
+import com.crindigo.voidrunnercore.common.metatileentities.multi.MetaTileEntityDigester;
 import com.crindigo.voidrunnercore.common.metatileentities.multi.MetaTileEntityGreenhouse;
 import com.crindigo.voidrunnercore.common.metatileentities.multi.MetaTileEntityPrimitiveEvapPool;
 import com.crindigo.voidrunnercore.common.metatileentities.multi.MetaTileEntityTrashCollector;
@@ -22,6 +23,7 @@ public class VRCMetaTileEntities
     //public static MetaTileEntityGreenhouse GREENHOUSE;
     public static MetaTileEntityPrimitiveEvapPool PRIMITIVE_EVAP_POOL;
     public static MetaTileEntityTrashCollector TRASH_COLLECTOR;
+    public static MetaTileEntityDigester DIGESTER;
 
 
     public static void init() {
@@ -48,6 +50,9 @@ public class VRCMetaTileEntities
 
         TRASH_COLLECTOR = MetaTileEntities.registerMetaTileEntity(31008,
                 new MetaTileEntityTrashCollector(vrcId("trash_collector")));
+
+        DIGESTER = MetaTileEntities.registerMetaTileEntity(31009,
+                new MetaTileEntityDigester(vrcId("digester")));
     }
 
     private static @NotNull ResourceLocation vrcId(@NotNull String name) {
