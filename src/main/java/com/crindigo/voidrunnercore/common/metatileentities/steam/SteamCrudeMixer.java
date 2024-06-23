@@ -2,9 +2,7 @@ package com.crindigo.voidrunnercore.common.metatileentities.steam;
 
 import com.crindigo.voidrunnercore.api.capability.VRCFluidFilters;
 import com.crindigo.voidrunnercore.api.recipes.VRCRecipeMaps;
-import gregtech.api.capability.impl.FilteredFluidHandler;
-import gregtech.api.capability.impl.FluidTankList;
-import gregtech.api.capability.impl.NotifiableItemStackHandler;
+import gregtech.api.capability.impl.*;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.ModularUI;
 import gregtech.api.gui.widgets.ProgressWidget;
@@ -47,14 +45,16 @@ public class SteamCrudeMixer extends SteamMetaTileEntity
     @Override
     public FluidTankList createImportFluidHandler() {
         super.createImportFluidHandler(); // create the steam fluid tank
-        inputFluidOne = new FilteredFluidHandler(8000).setFilter(VRCFluidFilters.NON_STEAM);
-        inputFluidTwo = new FilteredFluidHandler(8000).setFilter(VRCFluidFilters.NON_STEAM);
+        inputFluidOne = new NotifiableFilteredFluidHandler(8000, this, false)
+                .setFilter(VRCFluidFilters.NON_STEAM);
+        inputFluidTwo = new NotifiableFilteredFluidHandler(8000, this, false)
+                .setFilter(VRCFluidFilters.NON_STEAM);
         return new FluidTankList(false, steamFluidTank, inputFluidOne, inputFluidTwo);
     }
 
     @Override
     protected FluidTankList createExportFluidHandler() {
-        outputFluid = new FluidTank(8000);
+        outputFluid = new NotifiableFluidTank(8000, this, true);
         return new FluidTankList(false, outputFluid);
     }
 
