@@ -1,6 +1,6 @@
 package com.crindigo.voidrunnercore.common.item;
 
-import gregtech.api.GregTechAPI;
+import com.crindigo.voidrunnercore.client.AnimatedText;
 import gregtech.api.items.metaitem.MetaItem.MetaValueItem;
 import gregtech.api.items.metaitem.StandardMetaItem;
 import gregtech.common.items.behaviors.TooltipBehavior;
@@ -26,6 +26,8 @@ public class VRCMetaItems
     {
         INFINITE_LAVA_COVER = metaItem.addItem(1, "cover.infinite_lava")
                 .addComponents(new TooltipBehavior((lines) -> {
+                    lines.add(AnimatedText.animate("This is a rainbow and animates very quickly", AnimatedText.RAINBOW_ANIM));
+                    lines.add(AnimatedText.animate("The end is calling", AnimatedText.VOID_ANIM));
                     lines.add(I18n.format("metaitem.cover.infinite_lava.tooltip.1"));
                     lines.add(I18n.format("gregtech.universal.tooltip.produces_fluid", 100));
                 }));
