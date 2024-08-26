@@ -5,6 +5,7 @@ import com.crindigo.voidrunnercore.VRCLog;
 import com.crindigo.voidrunnercore.common.item.VRCMetaItems;
 import com.crindigo.voidrunnercore.loaders.recipe.RecipeManager;
 import gregtech.api.GregTechAPI;
+import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.material.event.MaterialRegistryEvent;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
@@ -19,7 +20,7 @@ public class CommonProxy
 {
     public void preLoad()
     {
-
+        RecipeMaps.FORGE_HAMMER_RECIPES.setMaxOutputs(2);
     }
 
     public void load()
