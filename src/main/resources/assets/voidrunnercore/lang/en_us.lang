@@ -23,4 +23,11 @@ recipemap.trash_collector.name=Trash Collector
 voidrunnercore.machine.digester.name=Digester
 recipemap.digester.name=Digester
 
+voidrunnercore.machine.bloomery.name=Bloomery
+recipemap.bloomery.name=Bloomery
+
+voidrunnercore.machine.electric_bloomery.name=Electric Bloomery
+recipemap.electric_bloomery.name=Electric Bloomery
+
+
 voidrunnercore.command.reloading_quests=Reloading GroovyQuesting quests

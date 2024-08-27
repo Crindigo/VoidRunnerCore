@@ -31,4 +31,19 @@ public class VRCRecipeMaps
     public static final RecipeMap<SimpleRecipeBuilder> DIGESTER_RECIPES = new RecipeMap<>(
             "digester", 4, 4, 1, 1,
             new SimpleRecipeBuilder(), false);
+
+    public static final RecipeMap<SimpleRecipeBuilder> ELECTRIC_BLOOMERY_RECIPES = new RecipeMap<>(
+            "electric_bloomery", 1, 4, 0, 0,
+            new SimpleRecipeBuilder(), false);
+
+    public static final RecipeMap<PrimitiveRecipeBuilder> BLOOMERY_RECIPES = new RecipeMap<>(
+            "bloomery", 1, 4, 0, 0,
+            new PrimitiveRecipeBuilder(), false)
+            .onRecipeBuild(recipeBuilder -> {
+                ELECTRIC_BLOOMERY_RECIPES.recipeBuilder()
+                        .duration(recipeBuilder.getDuration() / 4)
+                        .input(recipeBuilder.getInputs().get(0))
+                        .outputs(recipeBuilder.getOutputs())
+                        .buildAndRegister();
+            });
 }

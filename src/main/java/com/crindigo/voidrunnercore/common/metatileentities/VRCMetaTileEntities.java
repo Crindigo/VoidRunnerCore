@@ -1,10 +1,7 @@
 package com.crindigo.voidrunnercore.common.metatileentities;
 
 import com.crindigo.voidrunnercore.Tags;
-import com.crindigo.voidrunnercore.common.metatileentities.multi.MetaTileEntityDigester;
-import com.crindigo.voidrunnercore.common.metatileentities.multi.MetaTileEntityGreenhouse;
-import com.crindigo.voidrunnercore.common.metatileentities.multi.MetaTileEntityPrimitiveEvapPool;
-import com.crindigo.voidrunnercore.common.metatileentities.multi.MetaTileEntityTrashCollector;
+import com.crindigo.voidrunnercore.common.metatileentities.multi.*;
 import com.crindigo.voidrunnercore.common.metatileentities.steam.SteamBotanyGrower;
 import com.crindigo.voidrunnercore.common.metatileentities.steam.SteamCrudeMixer;
 import com.crindigo.voidrunnercore.common.metatileentities.steam.SteamSifter;
@@ -24,6 +21,8 @@ public class VRCMetaTileEntities
     public static MetaTileEntityPrimitiveEvapPool PRIMITIVE_EVAP_POOL;
     public static MetaTileEntityTrashCollector TRASH_COLLECTOR;
     public static MetaTileEntityDigester DIGESTER;
+    public static MetaTileEntityBloomery BLOOMERY;
+    public static MetaTileEntityElectricBloomery ELECTRIC_BLOOMERY;
 
 
     public static void init() {
@@ -53,6 +52,12 @@ public class VRCMetaTileEntities
 
         DIGESTER = MetaTileEntities.registerMetaTileEntity(31009,
                 new MetaTileEntityDigester(vrcId("digester")));
+
+        BLOOMERY = MetaTileEntities.registerMetaTileEntity(31010, new MetaTileEntityBloomery(vrcId("bloomery")));
+
+        ELECTRIC_BLOOMERY = MetaTileEntities.registerMetaTileEntity(31011,
+                new MetaTileEntityElectricBloomery(vrcId("electric_bloomery")));
+
     }
 
     private static @NotNull ResourceLocation vrcId(@NotNull String name) {
