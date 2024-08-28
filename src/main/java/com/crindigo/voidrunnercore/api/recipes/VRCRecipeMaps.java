@@ -38,13 +38,5 @@ public class VRCRecipeMaps
 
     public static final RecipeMap<PrimitiveRecipeBuilder> BLOOMERY_RECIPES = new RecipeMap<>(
             "bloomery", 2, 4, 0, 0,
-            new PrimitiveRecipeBuilder(), false)
-            .onRecipeBuild(recipeBuilder -> {
-                ELECTRIC_BLOOMERY_RECIPES.recipeBuilder()
-                        .duration(recipeBuilder.getDuration() / 2)
-                        .input(recipeBuilder.getInputs().get(0))
-                        .outputs(recipeBuilder.getOutputs())
-                        .EUt(30)
-                        .buildAndRegister();
-            });
+            new PrimitiveRecipeBuilder(), false);
 }
