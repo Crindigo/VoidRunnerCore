@@ -14,6 +14,7 @@ import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.common.blocks.BlockSteamCasing;
 import gregtech.common.blocks.MetaBlocks;
+import gregtech.common.blocks.StoneVariantBlock;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
@@ -66,8 +67,13 @@ public class MetaTileEntityPrimitiveEvapPool extends RecipeMapMultiblockControll
                 // the front, layer 0 then layer 1
                 .aisle(anyBuilder.toString(), frontWallBuilder.toString(), topAir)
                 .where(' ', any())
-                .where('B', states(
-                        Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT)))
+                //.where('B', states(
+                //        Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT)))
+                .where('B',
+                        states(MetaBlocks.STONE_BLOCKS.get(StoneVariantBlock.StoneVariant.SMOOTH)
+                                .getState(StoneVariantBlock.StoneType.CONCRETE_LIGHT))
+                        .or(states(MetaBlocks.STONE_BLOCKS.get(StoneVariantBlock.StoneVariant.SMOOTH)
+                                .getState(StoneVariantBlock.StoneType.CONCRETE_DARK))))
                 .where('W', states(MetaBlocks.STEAM_CASING.getState(BlockSteamCasing.SteamCasingType.WOOD_WALL))
                         .setMinGlobalLimited(minWalls)
                         .or(autoAbilities(false, false, true, true, true, true, false)))
