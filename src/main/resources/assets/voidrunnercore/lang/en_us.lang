@@ -31,3 +31,6 @@ recipemap.electric_bloomery.name=Electric Bloomery
 
 
 voidrunnercore.command.reloading_quests=Reloading GroovyQuesting quests
+
+voidrunner.material.dummy=Dummy One
+voidrunner.material.dummy_two=Dummy Two

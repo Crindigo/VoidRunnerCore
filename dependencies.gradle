@@ -31,6 +31,7 @@ dependencies {
 
     implementation rfg.deobf('curse.maven:endercore-231868:4671384')
     implementation files('libs/EnderCore-1.12.2-0.5.78-core.jar') // extracted from above...
+    implementation files('libs/BetterQuestingUnofficial-4.2.3.jar')
 
     implementation rfg.deobf('curse.maven:applecore-224472:2969118')
     implementation rfg.deobf("curse.maven:ctm-267602:2915363") // CTM 1.0.2.31
