@@ -8,6 +8,7 @@ import gregtech.api.GTValues;
 import gregtech.api.GregTechAPI;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.material.Material;
+import gregtech.api.unification.material.event.MaterialEvent;
 import gregtech.api.unification.material.event.MaterialRegistryEvent;
 import gregtech.api.unification.material.info.MaterialFlags;
 import net.minecraft.item.Item;
@@ -36,13 +37,16 @@ public class CommonProxy
     public static void registerMaterials(MaterialRegistryEvent event)
     {
         GregTechAPI.materialManager.createRegistry("voidrunner");
+    }
 
+    @SubscribeEvent
+    public static void registerDummyMaterials(MaterialEvent event)
+    {
         // seeing if registering a dummy material fixes a BlockCable getFallbackType() crash.
         // there was a "voidrunner:cable_double" name and enabled materials was empty.
 
         new Material.Builder(32765, new ResourceLocation("voidrunner", "dummy"))
                 .ingot()
-                .flags(MaterialFlags.GENERATE_FOIL) // will crash without this if you have a cable at IV+
                 .cableProperties(GTValues.V[GTValues.OpV], 16, 1)
                 .itemPipeProperties(1024, 64)
                 .color(0xff00ff)
