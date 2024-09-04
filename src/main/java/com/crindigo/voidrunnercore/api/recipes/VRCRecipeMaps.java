@@ -33,7 +33,7 @@ public class VRCRecipeMaps
             new SimpleRecipeBuilder(), false);
 
     public static final RecipeMap<SimpleRecipeBuilder> ELECTRIC_BLOOMERY_RECIPES = new RecipeMap<>(
-            "electric_bloomery", 2, 4, 0, 0,
+            "electric_bloomery", 2, 4, 1, 0,
             new SimpleRecipeBuilder(), false);
 
     public static final RecipeMap<PrimitiveRecipeBuilder> BLOOMERY_RECIPES = new RecipeMap<>(

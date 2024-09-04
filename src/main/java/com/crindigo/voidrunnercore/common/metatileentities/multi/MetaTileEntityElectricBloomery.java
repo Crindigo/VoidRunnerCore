@@ -44,8 +44,7 @@ public class MetaTileEntityElectricBloomery extends RecipeMapMultiblockControlle
                 .aisle(" S ", " I ", " T ") // front
                 .where('C', states(MetaBlocks.METAL_CASING.getState(
                         BlockMetalCasing.MetalCasingType.INVAR_HEATPROOF))
-                        .setMinGlobalLimited(1)
-                        .or(autoAbilities(false, false, true, true, false, false, false))
+                        .or(autoAbilities(false, false, true, true, true, false, false))
                         .or(energyAbility()))
                 .where('I', heatingCoils())
                 .where('T', states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.INVAR_HEATPROOF)))
