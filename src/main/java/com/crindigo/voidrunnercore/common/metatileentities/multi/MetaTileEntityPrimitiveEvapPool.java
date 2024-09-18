@@ -18,6 +18,8 @@ import gregtech.common.blocks.StoneVariantBlock;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 
 public class MetaTileEntityPrimitiveEvapPool extends RecipeMapMultiblockController
@@ -83,12 +85,14 @@ public class MetaTileEntityPrimitiveEvapPool extends RecipeMapMultiblockControll
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
         return Textures.WOOD_WALL;
     }
 
     @NotNull
     @Override
+    @SideOnly(Side.CLIENT)
     protected ICubeRenderer getFrontOverlay() {
         return Textures.BLOWER_OVERLAY;
     }

@@ -25,6 +25,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
@@ -68,11 +70,13 @@ public class MetaTileEntityGreenhouse extends RecipeMapMultiblockController
 
     @NotNull
     @Override
+    @SideOnly(Side.CLIENT)
     protected ICubeRenderer getFrontOverlay() {
         return VRCTextures.BOTANY_GROWER;
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public ICubeRenderer getBaseTexture(IMultiblockPart sourcePart) {
         return Textures.SOLID_STEEL_CASING;
     }
@@ -83,6 +87,7 @@ public class MetaTileEntityGreenhouse extends RecipeMapMultiblockController
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
         super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(I18n.format("voidrunnercore.greenhouse.supply_co2_to_boost"));

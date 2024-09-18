@@ -26,6 +26,7 @@ public class CommonProxy
     public void preLoad()
     {
         RecipeMaps.FORGE_HAMMER_RECIPES.setMaxOutputs(2);
+        RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.setMaxInputs(9);
     }
 
     public void load()

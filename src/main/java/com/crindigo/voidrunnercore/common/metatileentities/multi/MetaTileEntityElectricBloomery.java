@@ -19,6 +19,8 @@ import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.BlockWireCoil;
 import gregtech.common.blocks.MetaBlocks;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 
 public class MetaTileEntityElectricBloomery extends RecipeMapMultiblockController implements IHeatingCoil
@@ -58,6 +60,7 @@ public class MetaTileEntityElectricBloomery extends RecipeMapMultiblockControlle
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
         return Textures.HEAT_PROOF_CASING;
     }

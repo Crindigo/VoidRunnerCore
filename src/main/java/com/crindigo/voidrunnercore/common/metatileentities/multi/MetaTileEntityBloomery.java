@@ -14,6 +14,8 @@ import gregtech.client.renderer.texture.Textures;
 import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.MetaBlocks;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.jetbrains.annotations.NotNull;
 
 public class MetaTileEntityBloomery extends RecipeMapMultiblockController
@@ -47,12 +49,14 @@ public class MetaTileEntityBloomery extends RecipeMapMultiblockController
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
         return Textures.PRIMITIVE_BRICKS;
     }
 
     @NotNull
     @Override
+    @SideOnly(Side.CLIENT)
     protected ICubeRenderer getFrontOverlay() {
         return Textures.PRIMITIVE_BLAST_FURNACE_OVERLAY;
     }
